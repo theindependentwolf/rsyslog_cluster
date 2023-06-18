@@ -24,7 +24,7 @@
 
 #### 4. Create a docker compose file for rsyslog and nginx load balancer
 
-    This file creates three services. Two rsyslog instances from the docker image we just created and a load balancer using nginx. Create a nginx config file. The nginx instance is created from the latest nginx image and exposes ports 514 and 80 for log ingestion and load balancing.
+This file creates three services. Two rsyslog instances from the docker image we just created and a load balancer using nginx. Create a nginx config file. The nginx instance is created from the latest nginx image and exposes ports 514 and 80 for log ingestion and load balancing.
 
 The nginx configuration sets up a reverse proxy to balance the load between the rsyslog1 and rsyslog2 services on port 514.
 
@@ -36,15 +36,21 @@ This command will build the rsyslog services based on the Dockerfile, create the
 
 #### 6. Check the containers that are running
 
+```
 docker ps
+```
 
 #### 7. Check for logs if there is any problem
 
+```
 docker compose logs
+```
 
 #### 8. SSH into docker container to debug
 
-docker exec -it `<container_id> sh`
+```
+docker exec -it 
+```
 
 
 ## Test Cluster
@@ -55,7 +61,9 @@ To test log ingestion and verify that the logs are being ingested by your rsyslo
 
     Use a tool like curl to send some test messages
 
+```
 curl -vX POST -d "This is a sample message from MARS" http://localhost:80
+```
 
 #### 2. Check if the test message has been received
 
@@ -63,13 +71,21 @@ curl -vX POST -d "This is a sample message from MARS" http://localhost:80
 
 a. Find the docker container id of the rsyslog instances
 
+```
 docker ps
+```
 
 b. Log into specific instance
 
-docker exec -it `<container_id> sh`
+```
+docker exec -it 
+```
 
-c. cat /var/log/rsyslog.log
+c.
+
+```
+cat /var/log/rsyslog.log
+```
 
 d. Alternatively, you can get the messages from the local mounted volume, rsyslog1 and rsyslog2
 
