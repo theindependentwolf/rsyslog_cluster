@@ -52,7 +52,6 @@ docker compose logs
 docker exec -it 
 ```
 
-
 ## Test Cluster
 
 To test log ingestion and verify that the logs are being ingested by your rsyslog instances and load balancer, you can follow these steps:
@@ -89,8 +88,6 @@ cat /var/log/rsyslog.log
 
 d. Alternatively, you can get the messages from the local mounted volume, rsyslog1 and rsyslog2
 
-
-
 ## Diagnostics
 
 Below are some commands that will help you diagnose issues in your cluster
@@ -124,3 +121,6 @@ docker start <container_id> #To start container
 docker rm $(docker ps -a -q) #To remove all docker containers at once
 
 ```
+
+
+DEMO: https://drive.google.com/file/d/1Bym3mwmwKax0HslgmFBgzNs5hXD8p_1t/view?usp=sharing
